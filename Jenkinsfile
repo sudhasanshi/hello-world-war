@@ -21,10 +21,6 @@ pipeline {
   }
               stage('restart') {
             steps {
-                    sh 'ls -l /opt/apache-tomcat-9.0.85/bin/catalina.sh'
-                    sh 'ls -l /opt/apache-tomcat-9.0.85/bin/shutdown.sh'
-                    sh 'chmod +x /opt/apache-tomcat-9.0.85/bin/*.sh'
-                    sh '/opt/apache-tomcat-9.0.85/bin/shutdown.sh'
               sh '/opt/apache-tomcat-9.0.85/bin/shutdown.sh'
               sh '/opt/apache-tomcat-9.0.85/bin/startup.sh'
             }
