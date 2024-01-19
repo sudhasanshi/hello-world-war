@@ -23,7 +23,7 @@ pipeline {
                         id: "Artifact",
                         url: "http://13.238.154.172:8081/artifactory",
                         username: "jenkins",
-                        password: "1390149a"
+                        password: "passwd"
                     )
                 }
             }
