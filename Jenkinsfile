@@ -1,7 +1,7 @@
 @Library("my_shared_library") _
 
 pipeline {
-  agent any
+  agent { label 'java' }
   stages{
     stage('Checkout') {
       steps {
