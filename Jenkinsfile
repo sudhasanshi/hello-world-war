@@ -6,7 +6,7 @@ pipeline {
        stage('Demo') {
            steps {
                 echo 'Executing a shared lib function'
-                sayHello(devops)
+                sayHello 'devops'
            }
          }
        }
