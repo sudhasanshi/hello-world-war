@@ -24,5 +24,8 @@ pipeline {
       steps {
         script {
           deploy()
+        }
+      }
+    }
   }
 }
