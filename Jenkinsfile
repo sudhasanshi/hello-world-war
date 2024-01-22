@@ -1,4 +1,4 @@
-@Library("my_shared_library") _
+@Library("library_hello") _
 pipeline {
   agent { label 'java' }
   stages{
