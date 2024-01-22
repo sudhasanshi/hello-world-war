@@ -7,7 +7,7 @@ pipeline {
     stage('Demo') {
       steps {
         sh 'rm -rf hello-world-war'
-        checkout 'https://github.com/tarundanda147/hello-world-war.git"
+        checkout 'https://github.com/tarundanda147/hello-world-war.git'
       }
    }
 }
