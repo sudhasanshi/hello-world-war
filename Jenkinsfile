@@ -3,11 +3,24 @@
 pipeline {
     agent { label 'java' }
     stages {
-       stage('Demo') {
-           steps {
-                echo 'Executing a shared lib function'
-                sayHello.call(devops)
-           }
-         }
-       }
-     }
+       stage('Checkout') {
+            steps {
+                script {
+                    sh("""
+                       rm -rf hello-world-war
+                       git clone https://github.com/tarundanda147/hello-world-war.git
+                       ls -ltr
+                    """)
+                }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    build 'install'
+                }
+            }
+        }
+    }
+}
