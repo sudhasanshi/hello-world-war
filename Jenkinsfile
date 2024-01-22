@@ -3,7 +3,7 @@
 pipeline {
   agent {label 'java'}
   stages{
-    stage('checkout') {
+    stage('Checkout') {
       steps {
         sh 'rm -rf hello-world-war'
         sh 'git clone https://github.com/tarundanda147/hello-world-war/'
@@ -20,7 +20,7 @@ pipeline {
         }
       }
     }
-    stage('deploy') {
+    stage('Deploy') {
       steps {
         script {
           deploy()
