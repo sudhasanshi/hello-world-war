@@ -1,28 +1,31 @@
-@Library("library_hello") _
+@Library('library-hello') _
 pipeline {
-  agent { label 'java' }
-  stages{
-    stage('checkout') {
-      steps {
-        sh 'rm -rf hello-world-war'
-        sh 'git clone https://github.com/tarundanda147/hello-world-war/'
-      }
-    }
-    stage('Build') {
+    agent {label 'java'}
+    stages {
+        stage('Checkout') {
             steps {
                 script {
-                    sh 'pwd'
-                    sh 'ls'
-                    build 'package'
+                    sh  'rm -rf bus_booking'
+                    sh  'git clone https://github.com/yatheesh2328/bus_booking.git'
+                }
+            }
         }
-      }
-    }
-    stage('Deploy') {
-      steps {
-        script {
-          deploy()
+        stage('build') {
+            steps {
+                script {
+                    sh 'mvn clean install'
+                }
+            }
         }
-      }
-    }
-  }
+		
+           stage('SonarQube Scan') {
+               steps {
+			   withSonarQubeEnv('sonar'){
+				script {
+                       sonar()
+				}
+             }
+			}
+}
+}
 }
