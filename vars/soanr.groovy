@@ -1,5 +1,9 @@
 def call() {
        // Your SonarQube scan steps go here
-       sh 'mvn sonar:sonar -Dsonar.projectKey=sonar-token -Dsonar.host.url=http://65.1.147.242:9000/ -Dsonar.java.binaries=target/classes
+       
+       mvn sonar:sonar \
+  -Dsonar.projectKey=groovypipeline \
+  -Dsonar.host.url=http://65.1.147.242:9000 \
+  -Dsonar.login=09388cf9d7699b6b40c7203f8a51e23105b57be4
    }
 return this
