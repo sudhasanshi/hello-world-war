@@ -7,6 +7,6 @@ pipeline {
            steps {
                 echo 'Executing a shared lib function'
                 sayHello 'Devops'
-
+           }
          }
        }
