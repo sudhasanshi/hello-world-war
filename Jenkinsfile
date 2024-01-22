@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     sh  'rm -rf bus_booking'
-                    sh  'git clone https://github.com/yatheesh2328/bus_booking.git'
+                    sh  'git clone https://github.com/tarundanda147/hello-world-war.git'
                 }
             }
         }
