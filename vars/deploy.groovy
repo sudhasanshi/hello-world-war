@@ -1,4 +1,4 @@
-def call(){
+def call() {
     echo "installing java project"
     sh '''
     echo "yes"
