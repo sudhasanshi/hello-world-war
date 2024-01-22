@@ -6,11 +6,8 @@ pipeline {
        stage('Checkout') {
             steps {
                 script {
-                    sh("""
-                       rm -rf hello-world-war
-                       git clone https://github.com/tarundanda147/hello-world-war.git
-                       ls -ltr
-                    """)
+                     sh  'rm -rf hello-world-war'
+                     sh  'git clone https://github.com/tarundanda147/hello-world-war.git'
                 }
             }
         }
