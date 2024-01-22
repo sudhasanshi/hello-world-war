@@ -1,7 +1,7 @@
 @Library('library-demo') _
 
 pipeline {
-    agent any
+    agent { lable 'java' }
     stages {
        stage('Demo') {
            steps {
