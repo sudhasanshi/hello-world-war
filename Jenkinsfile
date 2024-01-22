@@ -6,7 +6,7 @@ pipeline {
     stage('checkout') {
       steps {
         sh 'rm -rf hello-world-war'
-        chekout 'https://github.com/tarundanda147/hello-world-war/'
+        chekout()
         sh 'pwd'
        sh 'ls'
       }
