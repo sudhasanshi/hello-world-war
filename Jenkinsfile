@@ -1,4 +1,4 @@
-@Library('library-demo') _
+@Library('library-checkout') _
 
 
 pipeline {
