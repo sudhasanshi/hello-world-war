@@ -16,7 +16,7 @@ pipeline {
                 script {
                     sh 'pwd'
                     sh 'ls'
-                    build()
+                    build 'package'
         }
       }
     }
