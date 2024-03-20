@@ -13,7 +13,7 @@ pipeline {
             steps {
                 dir("hello-world-war") {
                     sh 'echo "inside build"'
-                    sh "docker build -t tomcat-war:${BUILD_NUMBER} ." // Corrected Docker tag format
+                    sh "docker build -t tomcat-war:${BUILD_NUMBER} ."
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: '9edb749c-52c9-40d2-9266-024789f72979', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
-                    sh "docker tag tomcat-war:${BUILD_NUMBER} tarundevops147/tomcat:${BUILD_NUMBER}" // Corrected Docker tag format
+                    sh "docker tag tomcat-war:${BUILD_NUMBER} tarundevops147/tomcat:${BUILD_NUMBER}"
                     sh "docker push tarundevops147/tomcat:${BUILD_NUMBER}"
                 }
             }
