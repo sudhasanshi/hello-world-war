@@ -29,7 +29,7 @@ pipeline {
         stage('deployQA') {
             agent { label 'qa' }
             steps {
-                withCredentials([usernamePassword(credentialsId: 'your-docker-credentials-id', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: '9edb749c-52c9-40d2-9266-024789f72979', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
                     sh 'docker pull tarundevops147/tomcat:${BUILD_NUMBER}'
                     sh 'docker rm -f tomcat-qa || true'
@@ -40,7 +40,7 @@ pipeline {
         stage('deployProd') {
             agent { label 'prod' }
             steps {
-                withCredentials([usernamePassword(credentialsId: 'your-docker-credentials-id', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: '9edb749c-52c9-40d2-9266-024789f72979', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
                     sh 'docker pull tarundevops147/tomcat:${BUILD_NUMBER}'
                     sh 'docker rm -f tomcat-prod || true'
