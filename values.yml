@@ -1,0 +1,9 @@
+deploymentName: "my-jenkins"
+deploymentLabel: "jenkins"
+replicas: 4
+volumeName: "volume-jenkins"
+claimName: "claim-jenkins"
+storageClass: "sc-jenkins"
+requestStorage: "5Gi"
+serviceName: "svc-jenkins"
+ingressName: "jenkins-ingress"
