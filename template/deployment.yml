@@ -11,6 +11,7 @@ spec:
       app: {{ .Values.deploymentLabel }}
   template:
     metadata:
+      name: {{ .Values.deploymentLabel }}
       labels:
         app: {{ .Values.deploymentLabel }}
     spec:
@@ -18,14 +19,14 @@ spec:
         fsGroup: 1000 
         runAsUser: 0
       containers:
-        - name: jenkins
-          image: jenkins/jenkins:lts   
+        - name: {{ .Values.deploymentLabel }}
+          image: {{ .values.image }}:{{ .values.tag }}   
           volumeMounts: 
             - name: {{ .Values.volumeName }}
-              mountPath: /var/jenkins_home  
+              mountPath: /usr/local/tomcat/  
           env: 
-            - name: JENKINS_OPTS
-              value: --prefix=/jenkins
+            - name: TOMCAT_OPTS
+              value: --prefix=/tomcat
       volumes:
         - name: {{ .Values.volumeName }}
           persistentVolumeClaim:
