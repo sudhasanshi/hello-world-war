@@ -13,4 +13,4 @@ spec:
           service:
             name: {{ .Values.serviceName }}
             port:
-              number: 8080
+              number: 8090
