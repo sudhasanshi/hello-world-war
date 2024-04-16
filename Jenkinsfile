@@ -30,7 +30,7 @@ pipeline {
                     configs: '',
                     kubeConfig: [path: ''],
                     kubeconfigId: 'eks-cluster',
-                    secretNamespace: 'hello-world-war',
+                    secretName: '',
                     ssh: [sshCredentialsId: '*', sshServer: ''],
                     textCredentials: [
                         certificateAuthorityData: '',
