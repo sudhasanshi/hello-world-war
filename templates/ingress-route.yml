@@ -7,7 +7,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /hello-world-war-1.0.0
+      - path: /sample
         pathType: Prefix
         backend:
           service:
