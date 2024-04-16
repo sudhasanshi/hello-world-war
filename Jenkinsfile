@@ -13,14 +13,14 @@ pipeline {
             steps {
                 dir("hello-world-war") {
                     sh 'echo "inside build"'
-                    // Removed Docker build step
+                    // Add any build steps here if needed
                 }
             }
         }
         
         stage('push') {
             steps {
-                // Removed Docker push step
+                // Add any Docker push steps here if needed
             }
         }
         
