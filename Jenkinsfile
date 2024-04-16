@@ -31,10 +31,8 @@ pipeline {
         stage('Helm Deploy') {
             steps {
                 kubernetesDeploy(
-                    configs: '', 
                     kubeConfig: [path: ''], 
                     kubeconfigId: 'eks-cluster', 
-                    secretName: '', 
                     secretNamespace: 'hello-world-war', 
                     ssh: [sshCredentialsId: '*', sshServer: ''], 
                     textCredentials: [
