@@ -30,9 +30,8 @@ pipeline {
         stage ('Helm Deploy') {
             steps {
                 echo 'Deploying to Kubernetes using Helm'
-                sh "helm upgrade first --install mychart --namespace helm-deployment --set image.tag=$BUILD_NUMBER"
+                sh "helm upgrade first --install hello-world-war --namespace hello-world-war --set image.tag=$BUILD_NUMBER"
             }
         }
     }
-  }
 }
