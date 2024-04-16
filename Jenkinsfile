@@ -22,8 +22,8 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aed771cc-a7bd-45dc-b4ab-c30d8db5faac', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
-                    sh "docker tag tomcat-war:${BUILD_NUMBER} tarundevops147/tomcat:${BUILD_NUMBER}"
-                    sh "docker push tarundevops147/tomcat:${BUILD_NUMBER}"
+                    sh "docker tag tomcat-war:${BUILD_NUMBER} tarundanda147/tomcat:${BUILD_NUMBER}"
+                    sh "docker push tarundanda147/tomcat:${BUILD_NUMBER}"
                 }
             }
         }
