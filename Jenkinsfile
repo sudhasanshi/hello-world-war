@@ -28,12 +28,10 @@ pipeline {
             }
         }
         stage('Helm Deploy') {
+    stage('Helm Deploy') {
     steps {
         kubernetesDeploy(
             configs: '', 
-            dockerCredentials: [
-                [credentialsId: 'aed771cc-a7bd-45dc-b4ab-c30d8db5faac', url: 'https://hub.docker.com/repository/docker/tarundanda147/tomcat']
-            ], 
             kubeConfig: [path: ''], 
             kubeconfigId: 'eks-cluster', 
             secretName: '', 
