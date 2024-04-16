@@ -20,7 +20,7 @@ spec:
         runAsUser: 0
       containers:
         - name: {{ .Values.deploymentLabel }}
-          image: {{ .values.image }}:{{ .values.tag }}   
+          image: {{ .values.image }}:{{ .values.image.tag }}   
           volumeMounts: 
             - name: {{ .Values.volumeName }}
               mountPath: /usr/local/tomcat/  
