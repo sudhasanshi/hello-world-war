@@ -20,7 +20,7 @@ pipeline {
         
         stage('push') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'aed771cc-a7bd-45dc-b4ab-c30d8db5faac', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: '773e6289-72b6-476b-9e54-19702f9fb5d3', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
                     sh "docker tag tomcat-war:${BUILD_NUMBER} tarundanda147/tomcat:${BUILD_NUMBER}"
                     sh "docker push tarundanda147/tomcat:${BUILD_NUMBER}"
@@ -33,7 +33,7 @@ pipeline {
                 // Authenticate with AWS using IAM credentials stored in Jenkins
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'e4934178-c7e5-4e2b-a02d-1c35b36b42b3',
+                    credentialsId: '03bb86f5-d824-42dd-b9c7-da3dc566f56c',
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]]) {
