@@ -22,7 +22,7 @@ spec:
     spec:
       containers: 
         - name: {{ .Values.deploymentLabel }}
-          image: {{ .Values.imageName }}:{{ .Values.imageTag }}
+          image: {{ .Values.imageName }}:{{ .Values.image.tag }}
           env:
             - name: TOMCAT_OPTS
               value: --prefix=/tomcat 
