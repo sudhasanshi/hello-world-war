@@ -30,19 +30,7 @@ pipeline {
 
         stage('Helm Deploy') {
             steps {
-                kubernetesDeploy(
-                    configs: '', 
-                    kubeConfig: [path: ''], 
-                    kubeconfigId: 'eks-cluster', 
-                    secretName: '', 
-                    ssh: [sshCredentialsId: '*', sshServer: ''], 
-                    textCredentials: [
-                        certificateAuthorityData: '', 
-                        clientCertificateData: '', 
-                        clientKeyData: '', 
-                        serverUrl: 'https://'
-                    ]
-                ) {
+                withAWS(credentials: 'AKIA47CR2UOAWINFN6MR') {
                     echo 'Deploying to Kubernetes using Helm'
                     sh "helm upgrade first --install hello-world-war --namespace hello-world-war --set image.tag=$BUILD_NUMBER"
                 }
