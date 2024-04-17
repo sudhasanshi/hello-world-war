@@ -31,7 +31,12 @@ pipeline {
         stage('Helm Deploy') {
             steps {
                 // Authenticate with AWS using IAM credentials stored in Jenkins
-                withCredentials([aws(credentials: 'e4934178-c7e5-4e2b-a02d-1c35b36b42b3', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'e4934178-c7e5-4e2b-a02d-1c35b36b42b3',
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]) {
                     sh "aws eks --region us-east-1 update-kubeconfig --name eks-cluster"
                     echo 'Deploying to Kubernetes using Helm'
                     // Deploy Helm chart to Kubernetes cluster
