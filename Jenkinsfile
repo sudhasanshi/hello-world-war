@@ -32,6 +32,7 @@ pipeline {
             steps {
                 // Authenticate with AWS using IAM credentials stored in Jenkins
               withCredentials([awsCredentials(credentialsId: 'AKIA47CR2UOAWINFN6MR', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                    sh "aws eks --region us-east-1 update-kubeconfig --name eks-cluster"
                     echo 'Deploying to Kubernetes using Helm'
                     // Deploy Helm chart to Kubernetes cluster
                     sh "helm install first hello-world-war --namespace hello-world-war --set image.tag=$BUILD_NUMBER"
