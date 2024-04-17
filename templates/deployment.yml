@@ -8,10 +8,10 @@ spec:
   replicas: {{ .Values.replicas }}
   strategy:
     type: RollingUpdate
-    rollingUpdate: 
+    rollingUpdate:
       maxSurge: 1
       maxUnavailable: 0
-  selector: 
+  selector:
     matchLabels:
       app: {{ .Values.deploymentLabel }}
   template:
@@ -20,18 +20,18 @@ spec:
       labels:
         app: {{ .Values.deploymentLabel }}
     spec:
-      containers: 
+      containers:
         - name: {{ .Values.deploymentLabel }}
           image: {{ .Values.imageName }}:{{ .Values.image.tag }}
           env:
             - name: TOMCAT_OPTS
-              value: --prefix=/tomcat 
-          volumeMounts: 
+              value: --prefix=/tomcat
+          volumeMounts:
             - name: {{ .Values.volumeName }}
-              mountPath: /usr/local/tomcat/webapps  
+              mountPath: /usr/local/tomcat/webapps
       volumes:
         - name: {{ .Values.volumeName }}
           persistentVolumeClaim:
             claimName: {{ .Values.claimName }}
-     imagePullSecrets:
-        - name: my-reg-secret
+  imagePullSecrets:
+    - name: my-reg-secret
