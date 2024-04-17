@@ -40,7 +40,7 @@ pipeline {
                     sh "aws eks --region us-east-1 update-kubeconfig --name eks-cluster"
                     echo 'Deploying to Kubernetes using Helm'
                     // Deploy Helm chart to Kubernetes cluster
-                    sh "helm upgrade first ./hello-world-war --namespace hello-world-war --set image.tag=$BUILD_NUMBER"
+                    sh "helm upgrade first  /var/lib/jenkins/workspace/eks-docker/hello-world-war --namespace hello-world-war --set image.tag=$BUILD_NUMBER"
                 }
             }
         }
