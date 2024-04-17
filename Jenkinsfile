@@ -30,9 +30,11 @@ pipeline {
 
         stage('Helm Deploy') {
             steps {
-                withAWS(credentials: 'AKIA47CR2UOAWINFN6MR') {
+                // Authenticate with AWS using IAM credentials stored in Jenkins
+                withAWS(credentials: 'aws-credentials-id') {
                     echo 'Deploying to Kubernetes using Helm'
-                    sh "helm upgrade first --install hello-world-war --namespace hello-world-war --set image.tag=$BUILD_NUMBER"
+                    // Deploy Helm chart to Kubernetes cluster
+                    sh "helm install first hello-world-war --namespace hello-world-war --set image.tag=$BUILD_NUMBER"
                 }
             }
         }
