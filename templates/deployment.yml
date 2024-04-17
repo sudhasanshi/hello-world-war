@@ -34,4 +34,4 @@ spec:
           persistentVolumeClaim:
             claimName: {{ .Values.claimName }}
   imagePullSecrets:
-    - name: my-reg-secret
+    - name: regcred
